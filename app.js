@@ -5,10 +5,12 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 app.set('view engine', 'pug');
-app.set('views', './app/views');
+app.set('views', './app/views/');
 
 const publicUrl = require('./app/router/publicUrl');
 
+
+const sequelize = require('./private/database');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
