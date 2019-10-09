@@ -5,7 +5,7 @@ module.exports.index = (req,res,next) =>{
     });
 }
 
-module.exports.giris = (req,res,next) => {
+module.exports.login = (req,res,next) => {
     res.render('publicFiles/notSubdomain/login',{
         title:"Avukat giriş | Avukatsitesi.com",
         path: 'notSubdomain/giris'

@@ -5,6 +5,6 @@ let notSubdomainController = require('../controller/notSubdomainController');
 
 router.get('/',notSubdomainController.index);
 
-router.get('/avukatgirisi', notSubdomainController.giris);
+router.get('/avukatgiris', notSubdomainController.login);
 
 module.exports = router;

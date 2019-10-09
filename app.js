@@ -9,6 +9,7 @@ app.set('views', './app/views/');
 
 const publicUrl = require('./app/router/publicUrl');
 const notSubdomainUrl = require('./app/router/notSubdomain');
+const forbiden = require('./app/router/forbiden');
 
 
 const sequelize = require('./private/database');
@@ -22,7 +23,7 @@ app.use(publicUrl);
 
 app.use(notSubdomainUrl);
 
-
+app.use(forbiden);
 
 
 sequelize.sync().then(()=>{
