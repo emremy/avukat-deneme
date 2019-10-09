@@ -4,16 +4,22 @@ exports.index = (req,res,next)=>{
     let subdomain = req.vhost[0].toString();
     Users.findAll(
         {
-            where: {subdomain:subdomain},
-            attributes: ['id','subdomain','nameAndSurname','information','zipCode','email','country','city','phonenumber']
+            where: {subdomain:req.vhost[0]},
         }
     ).then(user=>{
-        console.log(user[0])
-            res.render('publicFiles/main/index',{
-                title:"Avukat bilmem ne - AvukatSitesi.com",
-                path:"/",
-                result: user[0]
-            })
+            if(user[0] !== undefined){
+
+                res.render('publicFiles/main/index',{
+                    title:"Avukat bilmem ne - AvukatSitesi.com",
+                    path:"/",
+                    result: user[0]
+                })
+            }else{
+                res.render('publicFiles/orderFiles/index',{
+                    title:"Böyle bir alan adı yok!",
+                    path:"/nullDomain"
+                })
+            }
         }
     ).catch(() => {
             res.render('publicFiles/orderFiles/index',{
