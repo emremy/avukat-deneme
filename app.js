@@ -8,6 +8,7 @@ app.set('view engine', 'pug');
 app.set('views', './app/views/');
 
 const publicUrl = require('./app/router/publicUrl');
+const notSubdomainUrl = require('./app/router/notSubdomain');
 
 
 const sequelize = require('./private/database');
@@ -18,6 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(publicUrl);
+
+app.use(notSubdomainUrl);
+
+
 
 
 sequelize.sync().then(()=>{
