@@ -1,6 +1,21 @@
 extends ../../layout/main-layout.pug
 
+block css
+    link(rel="stylesheet", href="/src/css/subdomain/style.css")
 block content
-    h1 #{result.nameAndSurname} selam
-    br
-    h2 #{result.email}
+    .row
+        .card.mb-3(style="max-width:540px")
+            .row.no-gutters
+                .col-md-4
+                    img(src="/src/img/subdomain/denemeAvatar.png",alt="Deneme")
+                .col-md-12
+                    .card-body
+                        h3.card-title #{result.name}
+                        p.card-text #{result.information}
+                .col-md-12
+                    .card-footer
+                        ul.footerUl
+                            li
+                                span Telefon numaram #{result.phonenumber}
+                            li
+                                span Zip kodum #{result.zipCode}

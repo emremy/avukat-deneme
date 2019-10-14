@@ -13,7 +13,8 @@ const Users = sequelize.define('users', {
         type:Sequelize.STRING,
         unique:true
     },
-    nameAndSurname: Sequelize.STRING,
+    name: Sequelize.STRING,
+    surname: Sequelize.STRING,
     information: {
         type: Sequelize.STRING,
         allowNull: true
@@ -31,7 +32,7 @@ const Users = sequelize.define('users', {
     },
     city: Sequelize.STRING,
     phonenumber: Sequelize.INTEGER,
-
+    photoName: Sequelize.STRING,
 });
 
 module.exports = Users;
